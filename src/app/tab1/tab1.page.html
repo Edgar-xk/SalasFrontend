@@ -1,0 +1,94 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Reservar
+    </ion-title>
+    <ion-grid id="Header">
+      <ion-row>
+        <ion-col>
+          <ion-button fill="clear" (click)="CambiarSalonR()">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-label *ngIf="salones!=undefined"><h2>{{salones[contador].Nombre}}</h2>
+            </ion-label>
+          
+        </ion-col>
+        <ion-col>
+          <ion-button fill="clear" (click)="CambiarSalonF()">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-item>
+    <ion-label>Nombre de quién reserva</ion-label>
+    <ion-input [(ngModel)]="nombreReservante"></ion-input>
+  </ion-item>
+  <ion-item>
+    
+    <ion-datetime  presentation="date"  name="fecha" id="fecha"></ion-datetime>
+  </ion-item>
+  <ion-item >
+    <ion-badge slot="start" color="danger" class="d-none" id="InicioOcupado">Hora Ocupada</ion-badge>
+    <ion-label>Hora de Inicio</ion-label>
+    <ion-datetime-button datetime="datetime2"  ></ion-datetime-button>
+
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime id="datetime2" presentation="time"  name="HoraInicioR" value={{fechaFormateadaI}}  [(ngModel)]="fechaFormateadaI"  ></ion-datetime>
+      </ng-template>
+    </ion-modal>
+
+
+
+
+    
+  </ion-item>
+  <ion-item>
+    <ion-badge slot="start" color="danger" class="d-none" id="FinOcupado">Hora Ocupada</ion-badge>
+    <ion-label>Hora de Fin</ion-label>
+    <ion-datetime-button datetime="datetime1"  ></ion-datetime-button>
+
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime id="datetime1" presentation="time" value={{fechaFormateadaF}}  name="HoraFinR" [(ngModel)]="fechaFormateadaF" ></ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </ion-item>
+ 
+  <ion-item>
+    <ion-label >Contraseña:</ion-label>
+    <ion-input type="password" placeholder="Contraseña para borrar o finalizar" [(ngModel)]="contrasena"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="InfoCodigo()">Reservar</ion-button>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ion-content>

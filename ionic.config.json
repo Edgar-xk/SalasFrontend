@@ -1,0 +1,7 @@
+{
+  "name": "Salones-front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

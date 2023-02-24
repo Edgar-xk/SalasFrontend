@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Opciones de sala. 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" id="content">
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="options-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button href="/tabs/modificar/2">
+        <ion-icon  name="trash"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button href="/tabs/modificar/1">
+        <ion-icon name="create"></ion-icon>
+      </ion-fab-button>
+      
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Agregar Salón</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item id="content">
+        <ion-label position="floating">Nombre de la sala</ion-label>
+        <ion-input [(ngModel)]="nombre"></ion-input>
+      </ion-item>
+      <ion-item id="content">
+        <ion-label position="floating">Descripción</ion-label>
+        <ion-input [(ngModel)]="Descripcion"></ion-input>
+      </ion-item>
+      <ion-item id="content">
+        <ion-label position="floating">Contraseña para borrar sala</ion-label>
+        <ion-input [(ngModel)]="contrasena"></ion-input>
+      </ion-item>
+      <ion-button expand="block"  (click)="AgregarSalon()">Agregar</ion-button>
+    </ion-card-content>
+  </ion-card>
+  
+
+
+
+
+
+
+
+</ion-content>
